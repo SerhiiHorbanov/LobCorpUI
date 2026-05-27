@@ -2,11 +2,11 @@ using System;
 
 namespace EventBuses
 {
-	public class EventBus<T>
+	public static class EventBus<T>
 	{
 		public static event Action<T> Event;
 
-		private static void Call(T payload)
+		public static void Invoke(T payload)
 		{
 			Event?.Invoke(payload);
 		}
