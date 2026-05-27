@@ -39,6 +39,7 @@ namespace UI.Widgets
 			
 			_hoverable = GetComponent<Hoverable>();
 			_hoverable._OnHover.AddListener(OnHovered);
+			_hoverable._OnStoppedHovering.AddListener(OnStoppedHovering);
 		}
 
 		public void Select()
@@ -72,10 +73,9 @@ namespace UI.Widgets
 		}
 
 		public void OnHovered()
-		{
-			SoftLobotomiteSelectionEventPayload payload = new(_data);
-			
-			EventBus<SoftLobotomiteSelectionEventPayload>.Invoke(payload);
-		}
+			=> EventBus<SoftLobotomiteSelectionEventPayload>.Invoke(new(_data));
+		
+		private void OnStoppedHovering()
+			=> EventBus<SoftLobotomiteDeselectionEventPayload>.Invoke(new(_data));
 	}
 }

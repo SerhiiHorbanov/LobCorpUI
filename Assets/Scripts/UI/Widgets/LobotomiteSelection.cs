@@ -15,6 +15,7 @@ namespace UI.Widgets
 		{
 			EventBus<HardLobotomiteSelectionEventPayload>.Event += HardSelectLobotomite;
 			EventBus<SoftLobotomiteSelectionEventPayload>.Event += SoftSelectLobotomite;
+			EventBus<SoftLobotomiteDeselectionEventPayload>.Event += SoftDeselectLobotomite;
 		}
 
 		private void HardSelectLobotomite(HardLobotomiteSelectionEventPayload payload)
@@ -25,10 +26,12 @@ namespace UI.Widgets
 			if (wasNull && !nowNull)
 			{
 				EventBus<SoftLobotomiteSelectionEventPayload>.Event -= SoftSelectLobotomite;
+				EventBus<SoftLobotomiteDeselectionEventPayload>.Event -= SoftDeselectLobotomite;
 			}
 			else if (!wasNull && nowNull)
 			{
 				EventBus<SoftLobotomiteSelectionEventPayload>.Event += SoftSelectLobotomite;
+				EventBus<SoftLobotomiteDeselectionEventPayload>.Event += SoftDeselectLobotomite;
 			}
 			
 			_hardSelectedLobotomite = payload.Lobotomite;
@@ -45,6 +48,15 @@ namespace UI.Widgets
 			
 			OnLobotomiteShouldBeDisplayed?.Invoke(payload.Lobotomite);
 			Debug.Log($"Soft selected lobotomite {payload.Lobotomite}");
+		}
+
+		private void SoftDeselectLobotomite(SoftLobotomiteDeselectionEventPayload payload)
+		{
+			LobotomiteData deselected = payload.Lobotomite;
+			if (deselected == _displayedLobotomite)
+			{
+				OnLobotomiteShouldBeDisplayed?.Invoke(null);
+			}
 		}
 	}
 }
