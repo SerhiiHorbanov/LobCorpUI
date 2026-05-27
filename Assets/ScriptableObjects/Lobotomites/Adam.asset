@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d99641ba891a2c498541d8a90e53a14, type: 3}
   m_Name: Adam
   m_EditorClassIdentifier: Assembly-CSharp::LobotomiteData
+  _Name: Adam
   _Fortitude: 3
   _Prudence: 4
   _Temperance: 5
