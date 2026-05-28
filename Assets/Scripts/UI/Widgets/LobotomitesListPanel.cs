@@ -1,3 +1,4 @@
+using EventBuses;
 using UnityEngine;
 
 namespace UI.Widgets
@@ -14,14 +15,25 @@ namespace UI.Widgets
             {
                 AddCard(lobotomite);
             }
+
+            EventBus<LobotomiteCardThrownOutEvent>.Event += AttachCard;
         }
 
+        private void AttachCard(LobotomiteCardThrownOutEvent payload)
+            => AttachCard(payload.Card);
+
+        private void AttachCard(LobotomiteCard card)
+        {
+            card.transform.SetParent(_CardsContainerObject.transform, false);
+        }
+        
         private void AddCard(LobotomiteData lobotomite)
         {
-            GameObject card = Instantiate(_CardPrefab, _CardsContainerObject.transform);
+            GameObject card = Instantiate(_CardPrefab);
             LobotomiteCard cardComponent = card.GetComponent<LobotomiteCard>();
-            
             cardComponent.Initialize(lobotomite);
+            
+            AttachCard(cardComponent);
         }
     }
 }

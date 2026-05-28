@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3188855291313797450}
   - component: {fileID: 4248504431479555440}
   - component: {fileID: 156544411249800180}
+  - component: {fileID: 259899240243397798}
   m_Layer: 5
   m_Name: Lobotomite Card
   m_TagString: Untagged
@@ -37,8 +38,8 @@ RectTransform:
   - {fileID: 3845808845122501175}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -158,6 +159,20 @@ MonoBehaviour:
   _OnStoppedHovering:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &259899240243397798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163661698429009766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adca565551e448992d7bd2ff66ffd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.Widgets.CardDragging
+  _Card: {fileID: 3188855291313797450}
+  _Draggable: {fileID: 0}
 --- !u!1 &3904604256710683747
 GameObject:
   m_ObjectHideFlags: 0
