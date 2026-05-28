@@ -66,7 +66,6 @@ namespace UI.Widgets
 		
 		public void Deselect()
 		{
-			Debug.Log("Deselect");
 			EventBus<HardLobotomiteSelectionEventPayload>.Event -= Deselect;
 			_button.onClick.AddListener(Select);
 			_button.onClick.RemoveListener(DeselectAndNotify);

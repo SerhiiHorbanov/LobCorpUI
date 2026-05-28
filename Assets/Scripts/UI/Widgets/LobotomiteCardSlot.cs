@@ -8,6 +8,7 @@ namespace UI.Widgets
 	public class LobotomiteCardSlot : MonoBehaviour
 	{
 		private LobotomiteCard _currentCard;
+		private Draggable _currentDraggable;
 
 		[SerializeField] private Transform _CardContainer;
 
@@ -35,19 +36,40 @@ namespace UI.Widgets
 		private void AttachCard(LobotomiteCard card)
 		{
 			if (_currentCard != null)
-				DetachCard();
+				ThrowOutCard();
 			
 			_currentCard = card;
 			card.transform.SetParent(_CardContainer, false);
 			card.transform.localPosition = Vector3.zero;
+			
+			_currentDraggable = card.GetComponent<Draggable>();
+			if (_currentDraggable != null)
+			{
+				_currentDraggable._OnBeginDrag.AddListener(DetachCard);
+			}
+			else
+			{
+				Debug.LogError($"{card.name} does not have a Draggable component. Lobotomite cards should always have a Draggable component");
+			}
 		}
+
+		private void DetachCard(PointerEventData _)
+			=> DetachCard();
 		
 		private void DetachCard()
 		{
-			LobotomiteCardThrownOutEvent payload = new(_currentCard);
-			EventBus<LobotomiteCardThrownOutEvent>.Invoke(payload);
+			_currentDraggable?._OnBeginDrag.RemoveListener(DetachCard);
 			
 			_currentCard = null;
+		}
+		
+		private void ThrowOutCard()
+		{
+			LobotomiteCard detachedCard = _currentCard;
+			DetachCard();
+
+			LobotomiteCardThrownOutEvent payload = new(detachedCard);
+			EventBus<LobotomiteCardThrownOutEvent>.Invoke(payload);
 		}
 	}
 }

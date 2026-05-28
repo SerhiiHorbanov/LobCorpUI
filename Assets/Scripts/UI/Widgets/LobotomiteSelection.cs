@@ -38,16 +38,13 @@ namespace UI.Widgets
 			_displayedLobotomite = payload.Lobotomite;
 			
 			OnLobotomiteShouldBeDisplayed?.Invoke(payload.Lobotomite);
-			
-			Debug.Log($"Hard selected lobotomite {payload.Lobotomite}");
 		}
 		
 		private void SoftSelectLobotomite(SoftLobotomiteSelectionEventPayload payload)
 		{
 			_displayedLobotomite = payload.Lobotomite;
 			
-			OnLobotomiteShouldBeDisplayed?.Invoke(payload.Lobotomite);
-			Debug.Log($"Soft selected lobotomite {payload.Lobotomite}");
+			OnLobotomiteShouldBeDisplayed?.Invoke(payload.Lobotomite); 
 		}
 
 		private void SoftDeselectLobotomite(SoftLobotomiteDeselectionEventPayload payload)

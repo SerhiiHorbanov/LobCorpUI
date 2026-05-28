@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4248504431479555440}
   - component: {fileID: 156544411249800180}
   - component: {fileID: 259899240243397798}
+  - component: {fileID: 8293197914941395432}
+  - component: {fileID: 3864606233460525130}
   m_Layer: 5
   m_Name: Lobotomite Card
   m_TagString: Untagged
@@ -171,8 +173,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adca565551e448992d7bd2ff66ffd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.Widgets.CardDragging
-  _Card: {fileID: 3188855291313797450}
-  _Draggable: {fileID: 0}
+--- !u!114 &8293197914941395432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163661698429009766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998b1df3f5a348c2a761605150aa2fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.Draggable
+  _OnBeginDrag:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnDrag:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnEndDrag:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!225 &3864606233460525130
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163661698429009766}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3904604256710683747
 GameObject:
   m_ObjectHideFlags: 0
