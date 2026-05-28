@@ -6,17 +6,17 @@ namespace UI
 {
 	public class Hoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
-		public UnityEvent _OnHover;
-		public UnityEvent _OnStoppedHovering;
+		public UnityEvent<PointerEventData> _OnHover;
+		public UnityEvent<PointerEventData> _OnStoppedHovering;
 
 		public void OnPointerEnter(PointerEventData eventData)
 		{
-			_OnHover.Invoke();
+			_OnHover.Invoke(eventData);
 		}
 
 		public void OnPointerExit(PointerEventData eventData)
 		{
-			_OnStoppedHovering.Invoke();
+			_OnStoppedHovering.Invoke(eventData);
 		}
 	}
 }

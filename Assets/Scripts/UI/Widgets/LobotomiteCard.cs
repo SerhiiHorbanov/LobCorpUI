@@ -72,10 +72,10 @@ namespace UI.Widgets
 			_button.onClick.RemoveListener(DeselectAndNotify);
 		}
 
-		public void OnHovered()
+		public void OnHovered(UnityEngine.EventSystems.PointerEventData _)
 			=> EventBus<SoftLobotomiteSelectionEventPayload>.Invoke(new(_data));
 		
-		private void OnStoppedHovering()
+		private void OnStoppedHovering(UnityEngine.EventSystems.PointerEventData _)
 			=> EventBus<SoftLobotomiteDeselectionEventPayload>.Invoke(new(_data));
 	}
 }
