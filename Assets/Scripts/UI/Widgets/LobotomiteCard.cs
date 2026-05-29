@@ -10,6 +10,7 @@ namespace UI.Widgets
 	{
 		private LobotomiteData _data;
 		
+		[SerializeField] private LobotomiteVisuals _LobotomiteVisuals;
 		[SerializeField] private VirtueDisplay _FortitudeDisplay;
 		[SerializeField] private VirtueDisplay _PrudenceDisplay;
 		[SerializeField] private VirtueDisplay _TemperanceDisplay;
@@ -18,7 +19,7 @@ namespace UI.Widgets
 		private bool _isSelected;
 		private Button _button;
 		private Hoverable _hoverable;
-		
+
 		public LobotomiteData LobotomiteData => _data;
 		
 		public void Initialize(LobotomiteData data)
@@ -35,6 +36,8 @@ namespace UI.Widgets
 			_PrudenceDisplay.SetValue(_data._Prudence);
 			_TemperanceDisplay.SetValue(_data._Temperance);
 			_JusticeDisplay.SetValue(_data._Justice);
+			
+			_LobotomiteVisuals.SetLobotomite(_data);
 			
 			_button = GetComponent<Button>();
 			_button.onClick.AddListener(Select);

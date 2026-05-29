@@ -796,10 +796,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2821116167762206154, guid: 7d5b1538f0c012646939887823db0ec0, type: 3}
-      propertyPath: _CardSlotPrefab
-      value: 
-      objectReference: {fileID: 4868009880428203325, guid: 2619cc99d0ec71c4bb66ad704a864186, type: 3}
     - target: {fileID: 8744452634921861163, guid: 7d5b1538f0c012646939887823db0ec0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

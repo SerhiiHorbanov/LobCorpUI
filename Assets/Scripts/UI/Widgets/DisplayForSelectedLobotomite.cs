@@ -6,6 +6,8 @@ namespace UI.Widgets
 	{
 		[SerializeField] private LobotomiteSelection _Selection;
 
+		[SerializeField] private LobotomiteVisuals _LobotomiteVisuals;
+		
 		[SerializeField] private VirtueDisplay _FortitudeDisplay;
 		[SerializeField] private VirtueDisplay _PrudenceDisplay;
 		[SerializeField] private VirtueDisplay _TemperanceDisplay;
@@ -19,6 +21,7 @@ namespace UI.Widgets
 		private void Display(LobotomiteData lobotomite)
 		{
 			UpdateVirtueDisplays(lobotomite);
+			_LobotomiteVisuals.SetLobotomite(lobotomite);
 		}
 
 		private void UpdateVirtueDisplays(LobotomiteData lobotomite)
