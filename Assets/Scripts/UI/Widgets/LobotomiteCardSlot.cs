@@ -1,3 +1,4 @@
+using System;
 using EventBuses;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,15 +13,14 @@ namespace UI.Widgets
 
 		[SerializeField] private Transform _CardContainer;
 
-		// ReSharper disable once InconsistentNaming
-		public GameObject TESTING_cardPrefab;
+		private bool _isBeingReplaced;
+		public bool IsEmpty => !_isBeingReplaced && _currentCard == null;
+		public Action OnCardChanged;
 		
 		private void Start()
 		{
 			Droppable droppable = GetComponent<Droppable>();
 			droppable._OnDrop.AddListener(OnDrop);
-			//GameObject card = Instantiate(TESTING_cardPrefab);
-			//AttachCard(card.GetComponent<LobotomiteCard>());
 		}
 
 		private void OnDrop(PointerEventData eventData)
@@ -33,12 +33,15 @@ namespace UI.Widgets
 				AttachCard(card);
 		}
 
-		private void AttachCard(LobotomiteCard card)
+		public void AttachCard(LobotomiteCard card)
 		{
+			_isBeingReplaced = true;
 			if (_currentCard != null)
 				ThrowOutCard();
+			_isBeingReplaced = false;
 			
 			_currentCard = card;
+			OnCardChanged?.Invoke();
 			card.transform.SetParent(_CardContainer, false);
 			card.transform.localPosition = Vector3.zero;
 			
@@ -61,6 +64,7 @@ namespace UI.Widgets
 			_currentDraggable?._OnBeginDrag.RemoveListener(DetachCard);
 			
 			_currentCard = null;
+			OnCardChanged?.Invoke();
 		}
 		
 		private void ThrowOutCard()

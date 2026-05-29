@@ -635,7 +635,6 @@ GameObject:
   - component: {fileID: 2082405051}
   - component: {fileID: 2082405053}
   - component: {fileID: 2082405052}
-  - component: {fileID: 2082405054}
   m_Layer: 5
   m_Name: Control Department
   m_TagString: Untagged
@@ -701,18 +700,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082405050}
   m_CullTransparentMesh: 1
---- !u!114 &2082405054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082405050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97595982ecc03074099da3c98456ae2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Department
 --- !u!1001 &7632230820577861641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,6 +796,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2821116167762206154, guid: 7d5b1538f0c012646939887823db0ec0, type: 3}
+      propertyPath: _CardSlotPrefab
+      value: 
+      objectReference: {fileID: 4868009880428203325, guid: 2619cc99d0ec71c4bb66ad704a864186, type: 3}
     - target: {fileID: 8744452634921861163, guid: 7d5b1538f0c012646939887823db0ec0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
