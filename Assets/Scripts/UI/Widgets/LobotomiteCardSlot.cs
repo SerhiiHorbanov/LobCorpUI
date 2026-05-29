@@ -1,5 +1,6 @@
 using System;
 using EventBuses;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,15 +13,18 @@ namespace UI.Widgets
 		private Draggable _currentDraggable;
 
 		[SerializeField] private Transform _CardContainer;
+		[SerializeField] private TextMeshProUGUI _LobotomiteNameText;
 
 		private bool _isBeingReplaced;
 		public bool IsEmpty => !_isBeingReplaced && _currentCard == null;
 		public Action OnCardChanged;
 		
-		private void Start()
+		private void Awake()
 		{
 			Droppable droppable = GetComponent<Droppable>();
 			droppable._OnDrop.AddListener(OnDrop);
+			
+			_LobotomiteNameText.text = "";
 		}
 
 		private void OnDrop(PointerEventData eventData)
@@ -44,6 +48,8 @@ namespace UI.Widgets
 			OnCardChanged?.Invoke();
 			card.transform.SetParent(_CardContainer, false);
 			card.transform.localPosition = Vector3.zero;
+
+			_LobotomiteNameText.text = card.LobotomiteData._Name;
 			
 			_currentDraggable = card.GetComponent<Draggable>();
 			if (_currentDraggable != null)
@@ -64,6 +70,8 @@ namespace UI.Widgets
 			_currentDraggable?._OnBeginDrag.RemoveListener(DetachCard);
 			
 			_currentCard = null;
+			_LobotomiteNameText.text = "";
+			
 			OnCardChanged?.Invoke();
 		}
 		

@@ -19,6 +19,8 @@ namespace UI.Widgets
 		private Button _button;
 		private Hoverable _hoverable;
 		
+		public LobotomiteData LobotomiteData => _data;
+		
 		public void Initialize(LobotomiteData data)
 		{
 			if (_data != null)
