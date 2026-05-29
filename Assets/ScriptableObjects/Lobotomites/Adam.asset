@@ -17,3 +17,8 @@ MonoBehaviour:
   _Prudence: 4
   _Temperance: 5
   _Justice: 6
+  _MouthIdx: 0
+  _EyesIdx: 0
+  _HairFrontIdx: 2
+  _HairBackIdx: 1
+  _HairColor: {r: 0.3018868, g: 0.0014239977, b: 0.0014239977, a: 0}
