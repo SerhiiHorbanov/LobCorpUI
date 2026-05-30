@@ -766,6 +766,10 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5383040613291682638, guid: d170674c2c2e93243a40c0d66c3c58c0, type: 3}
+      propertyPath: MaxDistance
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 7229544560441321180, guid: d170674c2c2e93243a40c0d66c3c58c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
