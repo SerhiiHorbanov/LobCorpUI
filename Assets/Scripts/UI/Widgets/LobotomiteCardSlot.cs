@@ -40,10 +40,10 @@ namespace UI.Widgets
 			LobotomiteCard card = dragged.GetComponent<LobotomiteCard>();
 			
 			if (card)
-				AttachCard(card, true);
+				AttachCard(card);
 		}
 
-		public void AttachCard(LobotomiteCard card, bool playAnimation = false)
+		public void AttachCard(LobotomiteCard card)
 		{
 			_isBeingReplaced = true;
 			if (_currentCard != null)
@@ -67,8 +67,7 @@ namespace UI.Widgets
 				Debug.LogError($"{card.name} does not have a Draggable component. Lobotomite cards should always have a Draggable component");
 			}
 			
-			if (playAnimation)
-				_Animator.SetTrigger(_CloseWithCardTrigger);
+			_Animator.SetTrigger(_CloseWithCardTrigger);
 		}
 
 		private void OnCardLifted(PointerEventData _)
