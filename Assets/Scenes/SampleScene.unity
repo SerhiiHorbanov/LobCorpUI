@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Management Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 1410094336846988941, guid: 7d5b1538f0c012646939887823db0ec0, type: 3}
+      propertyPath: m_VerticalScrollbarVisibility
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2679727084832706193, guid: 7d5b1538f0c012646939887823db0ec0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
