@@ -15,6 +15,8 @@ namespace UI.Widgets
 		[SerializeField] private RawImage _HairFrontImage;
 		[SerializeField] private RawImage _HairBackImage;
 		
+		//TODO: Change way of getting textures. A spritesheet would do
+		
 		[SerializeField] private Texture[] _MouthTextures;
 		[SerializeField] private Texture[] _EyesTextures;
 		[SerializeField] private Texture[] _HairFrontTextures;
@@ -27,11 +29,8 @@ namespace UI.Widgets
 				gameObject.SetActive(false);
 				return;
 			}
-			else
-			{
-				gameObject.SetActive(true);
-			}
-			
+			gameObject.SetActive(true);
+
 			_Lobotomite = lobotomite;
 			_MouthImage.texture = _MouthTextures[_Lobotomite._MouthIdx];
 			_EyesImage.texture = _EyesTextures[_Lobotomite._EyesIdx];

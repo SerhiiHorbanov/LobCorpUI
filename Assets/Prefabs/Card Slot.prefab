@@ -209,10 +209,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.Widgets.LobotomiteCardSlot
   _CardContainer: {fileID: 1185505128611750756}
   _LobotomiteNameText: {fileID: 7246579544681168655}
-  _Animator: {fileID: 9170471048385925738}
-  _CloseByItselfTrigger: Close
-  _CloseWithCardTrigger: Snap Close
-  _OpenTrigger: Open
+  _OnCardAttached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9170471048385925738}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Snap Close
+          m_BoolArgument: 0
+        m_CallState: 2
+  _OnCardDetachedNotThrownOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9170471048385925738}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Open
+          m_BoolArgument: 0
+        m_CallState: 2
+  _OnCardHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnCardStoppedHovering:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!222 &3287978663742467284
 CanvasRenderer:
   m_ObjectHideFlags: 0

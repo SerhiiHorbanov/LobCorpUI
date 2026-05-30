@@ -2,6 +2,7 @@ using System;
 using EventBuses;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace UI.Widgets
@@ -11,14 +12,15 @@ namespace UI.Widgets
 	{
 		private LobotomiteCard _currentCard;
 		private Draggable _currentDraggable;
+		private Hoverable _currentHoverable;
 
 		[SerializeField] private Transform _CardContainer;
 		[SerializeField] private TextMeshProUGUI _LobotomiteNameText;
-		[SerializeField] private Animator _Animator;
 
-		[SerializeField] private string _CloseByItselfTrigger;
-		[SerializeField] private string _CloseWithCardTrigger;
-		[SerializeField] private string _OpenTrigger;
+		[SerializeField] private UnityEvent _OnCardAttached;
+		[SerializeField] private UnityEvent _OnCardDetachedNotThrownOut;
+		[SerializeField] private UnityEvent<PointerEventData> _OnCardHovered;
+		[SerializeField] private UnityEvent<PointerEventData> _OnCardStoppedHovering;
 
 		private bool _isBeingReplaced;
 		public bool IsEmpty => !_isBeingReplaced && _currentCard == null;
@@ -28,7 +30,6 @@ namespace UI.Widgets
 		{
 			Droppable droppable = GetComponent<Droppable>();
 			droppable._OnDrop.AddListener(OnDrop);
-			_Animator = GetComponent<Animator>();
 			
 			_LobotomiteNameText.text = "";
 		}
@@ -67,31 +68,45 @@ namespace UI.Widgets
 				Debug.LogError($"{card.name} does not have a Draggable component. Lobotomite cards should always have a Draggable component");
 			}
 			
-			_Animator.SetTrigger(_CloseWithCardTrigger);
+			_currentHoverable = card.GetComponent<Hoverable>();
+			if (_currentHoverable != null)
+			{
+				_currentHoverable._OnHover.AddListener(_OnCardHovered.Invoke);
+				_currentHoverable._OnStoppedHovering.AddListener(_OnCardStoppedHovering.Invoke);
+			}
+			else
+			{
+				Debug.LogError($"{card.name} does not have a Draggable component. Lobotomite cards should always have a Draggable component");
+			}
+			
+			_OnCardAttached?.Invoke();
 		}
 
 		private void OnCardLifted(PointerEventData _)
 		{
-			DetachCard(true);
+			DetachCard(false);
 		}
 
-		private void DetachCard(bool playAnimation)
+		private void DetachCard(bool thrownOut)
 		{
 			_currentDraggable?._OnBeginDrag.RemoveListener(OnCardLifted);
+			
+			_currentHoverable?._OnHover.RemoveListener(_OnCardHovered.Invoke);
+			_currentHoverable?._OnStoppedHovering.RemoveListener(_OnCardStoppedHovering.Invoke);
 			
 			_currentCard = null;
 			_LobotomiteNameText.text = "";
 			
 			OnCardChanged?.Invoke();
 			
-			if (playAnimation)
-				_Animator.SetTrigger(_OpenTrigger);
+			if (!thrownOut)
+				_OnCardDetachedNotThrownOut?.Invoke();
 		}
 		
 		private void ThrowOutCard()
 		{
 			LobotomiteCard detachedCard = _currentCard;
-			DetachCard(false);
+			DetachCard(true);
 
 			LobotomiteCardThrownOutEvent payload = new(detachedCard);
 			EventBus<LobotomiteCardThrownOutEvent>.Invoke(payload);
