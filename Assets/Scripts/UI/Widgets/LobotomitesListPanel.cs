@@ -31,9 +31,6 @@ namespace UI.Widgets
 
         private void AttachCard(LobotomiteCard card)
         { 
-            EnsureSingleLastEmptySlot();
-            AddEmptySlot();
-            AddEmptySlot();
             _slots[^1].AttachCard(card);
             EnsureSingleLastEmptySlot();
         }
