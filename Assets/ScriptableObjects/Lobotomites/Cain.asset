@@ -17,8 +17,4 @@ MonoBehaviour:
   _Prudence: 3
   _Temperance: 2
   _Justice: 1
-  _MouthIdx: 0
-  _EyesIdx: 0
-  _HairFrontIdx: 1
-  _HairBackIdx: 1
-  _HairColor: {r: 0.2523585, g: 0.5, b: 0.49595857, a: 0}
+  _Visuals: {fileID: 11400000, guid: 1ea515aba29fa3a47b04d25f4bc95a89, type: 2}

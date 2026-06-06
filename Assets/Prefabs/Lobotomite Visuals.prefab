@@ -210,8 +210,17 @@ MonoBehaviour:
   _HairBackImage: {fileID: 3037888680491974368}
   _MouthTextures:
   - {fileID: 2800000, guid: 90f251b5938655041be9260aa9efb0b6, type: 3}
+  - {fileID: 2800000, guid: 341d47eeb85f6dc4688b9cc3f854bc6f, type: 3}
+  - {fileID: 2800000, guid: ddd3706ad68173a43ab3ac541463fea1, type: 3}
+  - {fileID: 2800000, guid: ebc9de3c2ad6f02418716c1220f09709, type: 3}
+  - {fileID: 2800000, guid: 037b63e553e3fd64e9fbb62ef5654b75, type: 3}
   _EyesTextures:
   - {fileID: 2800000, guid: e58b938939430714cb51b998b4e8bfa9, type: 3}
+  - {fileID: 2800000, guid: a5526216e92f5a34e8a6ec3e0c877ead, type: 3}
+  - {fileID: 2800000, guid: 1b5e4d036049a164db54167091c4cce6, type: 3}
+  - {fileID: 2800000, guid: 4f68c389ad84ba44393ddf2958652053, type: 3}
+  - {fileID: 2800000, guid: defab4f3dd358144d89c8b6b149c773d, type: 3}
+  - {fileID: 2800000, guid: 55d6fe26addb7c94b9caa6d3fe93ea97, type: 3}
   _HairFrontTextures:
   - {fileID: 2800000, guid: 94040f4ad5571c840896e05fe0195226, type: 3}
   - {fileID: 2800000, guid: 26b8cfdc05d498d4285ee3ffd1a475b9, type: 3}
