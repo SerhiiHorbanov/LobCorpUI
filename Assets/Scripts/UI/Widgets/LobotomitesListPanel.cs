@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using EventBuses;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 

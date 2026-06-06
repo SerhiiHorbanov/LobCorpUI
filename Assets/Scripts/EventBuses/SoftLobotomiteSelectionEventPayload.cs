@@ -1,3 +1,5 @@
+using ScriptableObjects;
+
 namespace EventBuses
 {
 	public class SoftLobotomiteSelectionEventPayload
