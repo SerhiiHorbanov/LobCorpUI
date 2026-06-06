@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/LobotomiteCardSlot.uss?fileID=7433441132597879392&amp;guid=e04162e8db3eaa44b99d91d7db24e556&amp;type=3#LobotomiteCardSlot"/>
+    <ui:Image data-source="" name="NamePanel" class="name-tag-panel">
+        <ui:Image data-source="" name="LeftHinge" class="left-hinge"/>
+        <ui:Image data-source="" name="RightHinge" class="right-hinge"/>
+        <ui:Label text="Name" name="NameLabel" class="name-label"/>
+    </ui:Image>
+    <ui:VisualElement name="CardContainer" style="flex-grow: 1; top: 21px; position: absolute; left: 5px; bottom: 5px; right: 5px;"/>
+</ui:UXML>

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/LobotomiteCard.uss?fileID=7433441132597879392&amp;guid=ef14facb1485384499e02936e94d31b5&amp;type=3#LobotomiteCard"/>
+    <ui:Image style="background-image: url(&quot;project://database/Assets/Textures/UI/Card.png?fileID=2800000&amp;guid=4ccc3aacef5a24f46a1730c7d93ebf20&amp;type=3#Card&quot;); position: absolute; top: 0; right: 0; bottom: 0; left: 0;">
+        <ui:Image style="background-image: url(&quot;project://database/Assets/Textures/UI/Card%20Outline.png?fileID=2800000&amp;guid=60dfb392a0f1eab469ef9b0afcf1fe74&amp;type=3#Card Outline&quot;); position: absolute; top: 0; right: 0; bottom: 0; left: 0;"/>
+        <ui:Image style="background-image: url(&quot;project://database/Assets/Textures/UI/Card%20Power%20Lines.png?fileID=2800000&amp;guid=43643bd1ab2f86441aec66602e7a1de9&amp;type=3#Card Power Lines&quot;); position: absolute; top: 0; right: 0; bottom: 0; left: 0;"/>
+        <ui:VisualElement name="LobotomiteVisualsMask" style="flex-grow: 1; left: 10px; position: absolute; right: 10px; top: 51px; bottom: 54px; overflow: hidden;"/>
+        <ui:VisualElement name="VirtuesPanel" style="flex-grow: 1; position: absolute; top: 146px; left: 4px; bottom: 4px; right: 4px;"/>
+    </ui:Image>
+</ui:UXML>
