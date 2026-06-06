@@ -6,7 +6,7 @@ namespace UI.Widgets
 {
 	public class LobotomiteVisuals : MonoBehaviour
 	{
-		[SerializeField] private LobotomiteData _Lobotomite;
+		[SerializeField] private LobotomiteVisualsData _Lobotomite;
 
 		[SerializeField] private RawImage _BodyImage;
 		
@@ -22,7 +22,7 @@ namespace UI.Widgets
 		[SerializeField] private Texture[] _HairFrontTextures;
 		[SerializeField] private Texture[] _HairBackTextures;
 
-		public void SetLobotomite(LobotomiteData lobotomite)
+		public void SetLobotomite(LobotomiteVisualsData lobotomite)
 		{
 			if (lobotomite == null)
 			{

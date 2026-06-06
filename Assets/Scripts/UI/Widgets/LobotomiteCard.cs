@@ -37,7 +37,7 @@ namespace UI.Widgets
 			_TemperanceDisplay.SetValue(_data._Temperance);
 			_JusticeDisplay.SetValue(_data._Justice);
 			
-			_LobotomiteVisuals.SetLobotomite(_data);
+			_LobotomiteVisuals.SetLobotomite(_data._Visuals);
 			
 			_button = GetComponent<Button>();
 			_button.onClick.AddListener(Select);

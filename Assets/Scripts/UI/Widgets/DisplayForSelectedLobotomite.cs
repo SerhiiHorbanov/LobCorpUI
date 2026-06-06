@@ -21,7 +21,7 @@ namespace UI.Widgets
 		private void Display(LobotomiteData lobotomite)
 		{
 			UpdateVirtueDisplays(lobotomite);
-			_LobotomiteVisuals.SetLobotomite(lobotomite);
+			_LobotomiteVisuals.SetLobotomite(lobotomite._Visuals);
 		}
 
 		private void UpdateVirtueDisplays(LobotomiteData lobotomite)
